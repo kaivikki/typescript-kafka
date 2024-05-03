@@ -1,0 +1,7 @@
+docker compose up -d
+
+docker compose exec kafka kafka-topics.sh --list --bootstrap-server localhost:9092
+
+docker compose exec kafka kafka-topics.sh --create --topic change-events --partitions 1 --replication-factor 1 --bootstrap-server localhost:9092
+
+docker compose exec kafka kafka-topics.sh --create --topic priority-change-events --partitions 1 --replication-factor 1 --bootstrap-server localhost:9092

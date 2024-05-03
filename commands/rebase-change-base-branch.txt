@@ -1,0 +1,31 @@
+To rebase your pull request to merge it into the develop branch instead of master, 
+you'll need to follow a series of steps in your local Git environment. 
+This involves changing the base of your current branch (feature/my-branch) from master to develop 
+and then updating your pull request accordingly. Here's how you can do it step by step:
+
+Step 1: Update Your Local Repository
+Before starting the rebase process, make sure your local repository is up to date with all branches involved.
+git checkout master
+git pull origin master
+
+git checkout develop
+git pull origin develop
+
+Step 2: Checkout Your Feature Branch
+git checkout feature/my-branch
+
+Step 3: Rebase onto Develop
+Now you will rebase your feature branch onto the develop branch. 
+This will move all of your commits from feature/my-branch so they appear on top of the current end of develop
+
+git rebase develop
+
+During rebase, you might encounter conflicts. Git will pause the rebase and allow you to resolve the conflicts manually. 
+After resolving any conflicts, use the following commands to continue the rebase:
+
+git add .
+git rebase --continue
+
+
+Step 4: Force Push Your Changes
+git push origin feature/my-branch --force
